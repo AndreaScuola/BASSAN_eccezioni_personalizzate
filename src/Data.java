@@ -25,20 +25,11 @@ public class Data {
     }
 
     public int distanzaDate(Data other) throws DateException{
-        try{
-            Calendario.validDate(other);
 
-            if(other.dd <= 0 || other.dd > 31){}
-
-            int giorniEMesi1 = dd + Calendario.getGiorniFinoAMese(mm);
-            int giorniEMesi2 = other.dd + Calendario.getGiorniFinoAMese(other.mm);
-            int dAnni = (yyyy - other.yyyy)*365;
-
-            return Math.abs(giorniEMesi1 - giorniEMesi2 + dAnni);
-        } catch (DateException e){
-            throw e;
-        }
-
+        int giorniEMesi1 = dd + Calendario.getGiorniFinoAMese(mm);
+        int giorniEMesi2 = other.dd + Calendario.getGiorniFinoAMese(other.mm);
+        int dAnni = (yyyy - other.yyyy)*365;
+        return Math.abs(giorniEMesi1 - giorniEMesi2 + dAnni);
     }
 
     public void setData(int dd, int mm, int yyyy) throws DateException {
